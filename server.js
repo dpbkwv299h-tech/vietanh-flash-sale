@@ -129,6 +129,6 @@ app.delete("/api/products/:id",admin,async(req,res)=>{
   catch(e){res.status(400).json({error:e.message});}
 });
 
-app.get("*",(req,res)=>res.sendFile(path.join(__dirname,"public","index.html")));
+app.use((req,res)=>res.sendFile(path.join(__dirname,"public","index.html")));
 const port=process.env.PORT||3000;
 app.listen(port,()=>console.log(`Flash Sale running :${port} | ${TZ} | ${vnTime()}`));
